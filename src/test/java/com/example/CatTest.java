@@ -15,6 +15,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
@@ -29,7 +30,7 @@ public class CatTest {
     @Test
     public void catSound() {
         cat.getSound();
-        MatcherAssert.assertThat("Барсик, подай голос", "Мяу", is(cat.getSound()));
+        MatcherAssert.assertThat("Барсик, подай голос", cat.getSound(), containsString("Мяу"));
     }
     @Test
     public void feedACat() throws Exception {

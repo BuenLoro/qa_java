@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
@@ -29,7 +30,7 @@ public class FelineTest {
     @Test
     public void countOfKittensTest() {
         feline.getKittens();
-        MatcherAssert.assertThat("Сколько котят", 1, is(feline.getKittens()));
+        MatcherAssert.assertThat("Сколько котят", feline.getKittens(), equalTo(1));
     }
     @Test
     public void getFamilyTest() {

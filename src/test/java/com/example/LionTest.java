@@ -12,6 +12,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
 
@@ -43,13 +45,13 @@ public class LionTest {
     @Test
     public void kittensTest(){
         when(feline.getKittens()).thenReturn(1);
-        int actualKittensAmountEquals1 = 1;
-        MatcherAssert.assertThat("Сколько у Лёвы котят", feline.getKittens(), is(actualKittensAmountEquals1));
+        int expectedKittensAmount = 1;
+        MatcherAssert.assertThat("Сколько у Лёвы котят", feline.getKittens(), is(expectedKittensAmount));
     }
     @Test
     public void getFoodTest() throws Exception {
         when(lion.getFood()).thenReturn(expectedFood);
         List<String> actualFood = lion.getFood();
-        MatcherAssert.assertThat("Что едят львы", expectedFood, is(lion.getFood()));
+        MatcherAssert.assertThat("Что едят львы", lion.getFood(), is(equalTo(expectedFood)));
     }
 }
